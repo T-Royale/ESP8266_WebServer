@@ -20,7 +20,7 @@ void setup() {
     Serial.print(".");
   }
 
-  // Imprimir la dirección IP asignada
+  // Imprimir las direcciones IP asignadas
   Serial.println("");
   Serial.println("Conectado a la red Wi-Fi");
   Serial.print("Dirección IP LAN asignada: ");
@@ -28,9 +28,10 @@ void setup() {
   Serial.print("Dirección IP WAN asignada: ");
   Serial.println(PublicIP);
 
-  // Definir la ruta raíz "/" que mostrará "Hola, Mundo"
+  // Definir la ruta raíz "/" que mostrará el mensage
   server.on("/", HTTP_GET, []() {
     server.send(200, "text/html", Prueba_CSS);
+    Serial.println("Alguien se ha conectado");
   });
 
   // Iniciar el servidor
