@@ -2,7 +2,7 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include "Secreto.h"
-#include "Contents.c"
+#include "Contents.h"
 
 // Crear una instancia del servidor web en el puerto 80
 ESP8266WebServer server(80);
