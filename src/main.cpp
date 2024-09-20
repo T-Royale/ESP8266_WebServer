@@ -3,6 +3,7 @@
 #include <ESP8266WebServer.h>
 #include "Secreto.h"
 #include "Contents.h"
+#include <FS.h>
 
 // Crear una instancia del servidor web en el puerto 80
 ESP8266WebServer server(80);
@@ -10,6 +11,13 @@ ESP8266WebServer server(80);
 void setup() {
   // Inicializar la comunicación serie para mostrar la IP
   Serial.begin(9600);
+
+  // Inicializar el sistema de carga de archivos (favicon)
+  if (!SPIFFS.begin()) {
+    Serial.println("Error al montar SPIFFS");
+    return;
+  }
+  Serial.println("SPIFFS montado correctamente");
 
   // Conectar a la red Wi-Fi
   WiFi.begin(ssid, password);
