@@ -5,6 +5,9 @@
 #include "Contents.h"
 #include <FS.h>
 
+//Cabeceras de funciones:
+void handleFavicon();
+
 // Crear una instancia del servidor web en el puerto 80
 ESP8266WebServer server(80);
 
@@ -42,6 +45,8 @@ void setup() {
     Serial.println("Alguien se ha conectado");
   });
 
+  server.on("/favicon.ico", handleFavicon);
+
   // Iniciar el servidor
   server.begin();
   Serial.println("Servidor iniciado");
@@ -50,4 +55,14 @@ void setup() {
 void loop() {
   // Manejar las solicitudes entrantes
   server.handleClient();
+}
+
+void handleFavicon() {
+  File file = SPIFFS.open("/favicon.ico", "r");
+  if (!file) {
+    server.send(404, "text/plain", "File not found");
+    return;
+  }
+  server.streamFile(file, "image/png");
+  file.close();
 }
