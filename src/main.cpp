@@ -45,7 +45,7 @@ void setup() {
     Serial.println("Alguien se ha conectado");
   });
 
-  server.on("/favicon.ico", handleFavicon);
+  server.on("/favicon", handleFavicon);
 
   // Iniciar el servidor
   server.begin();
@@ -58,7 +58,7 @@ void loop() {
 }
 
 void handleFavicon() {
-  File file = SPIFFS.open("/favicon.ico", "r");
+  File file = SPIFFS.open("/faviconV4.png", "r");
   if (!file) {
     server.send(404, "text/plain", "File not found");
     return;

@@ -5,7 +5,7 @@
     "<html>" \
     "<head>" \
     "<title>T_Royale Web Server</title>" \
-    "<link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\">" \
+    "<link rel=\"icon\" href=\"/favicon\" type=\"image/png\">" \
     "<style>" \
     "body { font-family: 'Comic Sans MS', cursive, sans-serif; background: linear-gradient(45deg, #f4f4f4, #b2ebf2); animation: bg-animation 10s infinite alternate; }" \
     "h1 { color: #ffffff; background: radial-gradient(circle, #00ccff, #006699); padding: 20px; text-align: center; font-size: 3em; text-shadow: 2px 2px 4px #000000; animation: bounce 1s infinite; transform-origin: center; }" \
