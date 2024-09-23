@@ -3,6 +3,9 @@
 .vscode/launch.json
 .vscode/ipch
 
+# Ignorar el archivo Secreto.h
+/include/Secreto.h
+
 # Ignorar carpetas de PlatformIO y Visual Studio Code
 .vscode/
 .pio/
