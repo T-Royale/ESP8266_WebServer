@@ -36,8 +36,11 @@ void setup() {
   Serial.println("Conectado a la red Wi-Fi");
   Serial.print("Dirección IP LAN asignada: ");
   Serial.println(WiFi.localIP());
-  Serial.print("Dirección IP WAN asignada: ");
-  Serial.println(PublicIP);
+  //Mostrar IP pública
+  if(Mostrar_IP_Publica) {
+    Serial.print("Dirección IP pública: ");
+    Serial.println(PublicIP);
+  }
 
   // Definir la ruta raíz "/" que mostrará el mensage
   server.on("/", HTTP_GET, []() {
