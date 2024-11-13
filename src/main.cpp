@@ -3,6 +3,7 @@
 #include <ESP8266WebServer.h>
 #include "Secreto.h"
 #include "Contents.h"
+#include "Test.h"
 #include <FS.h>
 
 //Cabeceras de funciones:
@@ -44,8 +45,14 @@ void setup() {
 
   // Definir la ruta raíz "/" que mostrará el mensage
   server.on("/", HTTP_GET, []() {
-    server.send(200, "text/html", Prueba_CSS);
+    server.send(200, "text/html", Test);
     Serial.println("Alguien se ha conectado");
+  });
+
+  // Definir raiz "/prueba"
+  server.on("/prueba", HTTP_GET, []() {
+    server.send(200, "text/html", Prueba_CSS);
+    Serial.println("Alguien ha abierto la prueba");
   });
 
   server.on("/favicon", handleFavicon);
